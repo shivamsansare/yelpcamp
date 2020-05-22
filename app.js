@@ -19,7 +19,6 @@ var authRoutes=require("./routes/index");
 var campgroundRoutes=require("./routes/campground");
 var commentRoutes=require("./routes/comments");
 
-//mongoose.connect("mongodb+srv://shivam:yelpcamp@cluster0-jui1f.mongodb.net/yelpcamp?retryWrites=true&w=majority",{useNewUrlParser: true});
 mongoose.connect("<add database here>");
 
 app.use(require("express-session")({
