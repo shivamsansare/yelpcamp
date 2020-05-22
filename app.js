@@ -19,8 +19,7 @@ var authRoutes=require("./routes/index");
 var campgroundRoutes=require("./routes/campground");
 var commentRoutes=require("./routes/comments");
 
-mongoose.connect("<add database here>");
-
+mongoose.connect(<ADD DATABASE HERE>);
 app.use(require("express-session")({
     secret:"Shivam's created Yelpcamp",
     resave:false,
