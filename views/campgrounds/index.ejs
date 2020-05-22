@@ -1,0 +1,60 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container">
+    <header class="jumbotron camp-img">
+        <div class="container">
+            <h1><i class="fas fa-campground"></i><i class="fas fa-map-signs"></i> Welcome to Yelpcamp</h1>
+            <p>View amazing campgrounds from around the globe</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="/campgrounds/new"><i class="fas fa-plus"></i> Add new campground</a>
+            </p>
+            <hr>
+            <div class="row container">
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+                <input id="search" class="form-control ml-auto" type="text" name="search" placeholder="&#xF002; Search campgrounds" style="width:30%;font-family:Arial, FontAwesome" onkeyup="search()">                   
+            </div>
+        </div>
+    </header>
+    
+    <div class="row text-center"  id="searching" style = "display:flex; flex-wrap: wrap;">
+        <% campgrounds.forEach(function(campground){ %>
+            <div class="col-md-3 col-sm-6 img">
+                <div class="img-thumbnail img-fluid">
+                    <img src="<%= campground.image %>" style="width: 100%">
+                    <div class="caption">
+                        <h4><%= campground.name %></h4>
+                    </div>
+                    <p>
+                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary btn-xs">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</div>
+
+<script>
+    const search=()=>{
+        let filter=document.getElementById('search').value.toUpperCase();
+        let searching=document.getElementById('searching');
+        let img=searching.getElementsByClassName('img');
+        
+        for(var i=0;i<img.length;i++){
+            let h4=img[i].getElementsByTagName('h4')[0];
+            if(h4){
+                let textValue=h4.textContent || h4.innerHTML;
+                if(textValue.toUpperCase().indexOf(filter) > -1){
+                   img[i].style.display="";
+                }
+                else{
+                    img[i].style.display="None";
+                }
+            }
+        }
+    }
+</script>
+
+<%- include('../partials/footer'); -%>
+

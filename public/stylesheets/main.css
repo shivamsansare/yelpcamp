@@ -1,0 +1,22 @@
+.thumbnail img{
+    width: 100%;
+}
+
+.thumbnail{
+    padding:0;
+}
+
+#delete-form{
+    display: inline;
+}
+
+
+.camp-img{
+    background-image:url(https://res.cloudinary.com/yelpcampcloud/image/upload/c_scale,dpr_auto,f_auto,q_auto,w_auto/v1513519375/2LSMCmJ_gpvxnl.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    color:white;
+}
+
