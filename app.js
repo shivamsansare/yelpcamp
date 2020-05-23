@@ -10,6 +10,7 @@ var express=require('express'),
     passportLocalMongoose=require("passport-local-mongoose"),
     methodOverride=require("method-override"),
     flash=require("connect-flash"),
+    keys=require("./keys"),
     mongoose=require("mongoose");
 
 //seedDB();
@@ -19,7 +20,7 @@ var authRoutes=require("./routes/index");
 var campgroundRoutes=require("./routes/campground");
 var commentRoutes=require("./routes/comments");
 
-mongoose.connect(<ADD YOUR DATABASE HERE>);
+mongoose.connect(keys.key.mongoDb,{useNewUrlParser: true});
 
 app.use(require("express-session")({
     secret:"Shivam's created Yelpcamp",
@@ -55,8 +56,8 @@ app.get("*",function(req,res){
     res.render("404");
 });
 
-//const PORT = 3000;
+const PORT = 3000;
 
-app.listen(process.env.PORT,process.env.IP,function(){
+app.listen(PORT,function(){
     console.log("Hello");
 });
