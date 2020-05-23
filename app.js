@@ -56,8 +56,8 @@ app.get("*",function(req,res){
     res.render("404");
 });
 
-const PORT = 3000;
+//const PORT = 3000;
 
-app.listen(PORT,function(){
+app.listen(process.env.PORT,process.env.IP,function(){
     console.log("Hello");
 });
